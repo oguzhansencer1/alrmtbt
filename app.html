@@ -1,0 +1,37 @@
+<!-- Tablet Makine Alarm Sistemi -->
+<div class="tablet-container">
+  <!-- Üst Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <img src="assets/Brisa.webp" alt="Logo" class="header-logo">
+      <span class="header-title">Makine Alarm Sistemi</span>
+    </div>
+    <div class="status-box">
+      <strong>Durum Bilgisi</strong><br>
+      <small>Toplam Makine: {{ totalMachines }}</small><br>
+      <small>Çalışan Makine: {{ workingMachines }}</small><br>
+      <small>Arızalı Makine: {{ faultyMachines }}</small>
+    </div>
+  </div>
+
+  <!-- Ana İçerik Alanı - 3x4 Grid -->
+  <div class="main-content">
+    <div class="alarms-grid-3x4">
+      <div *ngFor="let alarm of visibleAlarms; let i = index"
+           class="alarm-card"
+           [class.critical]="isCritical(alarm)">
+        <div class="machine-name">
+          {{ alarm.name || '-' }}
+        </div>
+        <div class="fault-info-alarm-template">
+          <div class="fault-info">
+            {{ alarm.faultReason || '-' }}
+          </div>
+        </div>
+        <div class="alarm-time">{{ formatTime(alarm.faultTime || '') }}</div>
+        <button class="repair-btn" (click)="removeAlarm(alarm)">Hatayı sil</button>
+      </div>
+    </div>
+  </div>
+</div>
+

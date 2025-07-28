@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+img, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tabletler için */
+@media (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+    .container {
+        padding: 8px;
+    }
+}
+
+/* Mobil cihazlar için */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 4px;
+    }
+}
